@@ -7,13 +7,11 @@ import {
 const createCoffeeStore = async (req, res) => {
   if (req.method === "POST") {
     //find a record
-
     const { id, name, neighbourhood, address, imgUrl, voting } = req.body;
 
     try {
       if (id) {
         const records = await findRecordByFilter(id);
-
         if (records.length !== 0) {
           res.json(records);
         } else {
